@@ -1,0 +1,175 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="GCredMaestra.master.cs" Inherits="MaestraGC" %>
+
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Gestor de Crédito</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="js/jqueryUno.js"></script>
+    <%--<script type="text/javascript" src="js/bootstrap.min.js"></script>--%>
+    <script type="text/javascript" src="js/bts.js"></script>
+    <link rel="stylesheet" href="css/bts.min.css" media="screen" />
+    
+    <link rel="shortcut icon" href="Grafix/Gestor.ico" />
+    <style type="text/css">
+        body {
+            margin-top: 15px;
+            margin-bottom: 20px;
+            height: 100%;
+            min-height: 100%;
+            background-color: #CCCCCC;
+            background-image: url(Grafix/background.gif);
+        }
+
+        .menuIE8 {
+            z-index: 50;
+        }
+
+        .Cabezal {
+            font-family: Arial;
+            font-size: 12px;
+            font-weight: bold;
+            background-image: url(Grafix/barra.png);
+        }
+
+        html {
+            height: 100%;
+        }
+
+        .botonimg{
+            background-image:url(Grafix/Lupa.png);
+            background-repeat:no-repeat;
+            height:34px;
+            width:34px;
+            border:none;
+            background-color: transparent;
+        }
+    </style>
+    <script language="javascript" type="text/javascript">
+
+        function ejecucionBoton(btnBoton) {
+            var boton = document.getElementById(btnBoton + '2');
+            boton.click();
+        }
+
+        function preventMultipleSubmissions() {
+            div5.style.backgroundColor = "#ffffff6e";
+            div5.style.width = "99%";
+            div5.style.height = "100%";
+            div5.style.top = "0";
+            div5.style.position = "fixed";
+            div5.style.zIndex = "100001"
+            msjLoad5.style.zIndex = "1"
+
+            msjLoad5.style.visibility = "visible";
+            msjLoad5.style.top = "40%";
+            msjLoad5.style.left = "48%";
+            msjLoad5.style.position = "fixed";
+
+            msjLoad5.style.zIndex = "1000";
+        }
+
+        function bloqueacontrol() {
+            window.onbeforeunload = preventMultipleSubmissions;
+        }
+    </script>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div id="div5">
+        </div>
+        <div id="msjLoad5" style="visibility: hidden; position: fixed;" align="center">
+            <img src="Grafix/loader.gif" alt="ld" />
+        </div>
+        <div id="contenedor" style="background-color: white; padding: 4px;" class="borders">
+            <div id="cabecera">
+                <cc1:ToolkitScriptManager runat="Server" ID="ScriptManager1" />
+                <table border="0" cellpadding="0" cellspacing="0" style="width: 100%; height: 68px" class="Cabezal borders">
+                    <tr>
+                        <td style="width: 7%; height: 68px; text-align: left;">
+                            <asp:Image ID="Image2" runat="server" ImageUrl="~/Grafix/Gestor.png" />
+                        </td>
+                        <td style="width: 20%; height: 68px; padding-left: 10px">
+                            <asp:Label ID="lbUsuario" runat="server" Text="Label" ForeColor="White"></asp:Label>
+                        </td>
+                        <td style="width: 58%; height: 68px;" align="center">
+                            <asp:TextBox ID="txtBuscar" runat="server" Width="50%"></asp:TextBox>
+                            &nbsp;&nbsp;
+                            <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/Grafix/Lupa.png" Width="27" 
+                                OnClientClick="javascript:return ejecucionBoton(this.id);" OnClick="ImageButton1_Click" />
+                            <%--<asp:Button ID="ImageButton2" runat="server" CssClass="botonimg" OnClick="ImageButton2_Click"/>--%>
+                            <%--<asp:ImageButton ID="ImageButtonS" runat="server" CausesValidation="False" ImageUrl="~/Grafix/Lupa.png" Width="1px" Height="1px"
+                                OnClientClick="javascript:return ejecucionBoton(this.id);" />--%>
+                            <asp:ImageButton ID="ImageButton12" runat="server" ImageUrl="~/Grafix/Lupa.png" Width="2" OnClick="ImageButton1_Click"/>
+
+
+                        </td>
+                        <td style="width: 15%; height: 68px; text-align: right;">
+                            <a href="GCredSoporte.aspx">
+                                <img src="grafix/mail.png" alt="Soporte Técnico" width="27" height="27" border="0" align="top" />
+                            </a>
+                            <a href="Salir.aspx">
+                                <img src="grafix/Salir.png" alt="Salir del Sistema" width="27" height="27" border="0" align="top" />
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <%--<asp:Menu ID="Menu1" runat="server" BackColor="Gainsboro" DynamicHorizontalOffset="2"
+                    Font-Names="Tahoma" Font-Size="Medium" ForeColor="DarkGreen" Orientation="Horizontal"
+                    StaticSubMenuIndent="10px" Font-Overline="False" CssClass="Menuborders">
+                    <StaticSelectedStyle BackColor="Gainsboro" />
+                    <StaticMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" CssClass="Menuborders" />
+                    <DynamicHoverStyle BackColor="YellowGreen" ForeColor="White" />
+                    <DynamicMenuStyle BackColor="Gainsboro" CssClass="menuIE8 Menuborders" />
+                    <DynamicSelectedStyle BackColor="Gainsboro" />
+                    <DynamicMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" CssClass="Menuborders" />
+                    <StaticHoverStyle BackColor="YellowGreen" ForeColor="White" />
+
+                </asp:Menu>--%>
+
+            <div class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+                            aria-expanded="false">
+                            <span class="sr-only">Navegación</span> <span class="icon-bar"></span><span
+                                class="icon-bar"></span><span class="icon-bar"></span>
+                        </button>
+                    </div>
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal" RenderingMode="List"
+                            IncludeStyleBlock="false" StaticMenuStyle-CssClass="nav navbar-nav" DynamicMenuStyle-CssClass="dropdown-menu">
+                        </asp:Menu>
+                    </div>
+                </div>
+            </div>
+
+            <div id="contenido">
+                <asp:Panel ID="Panel2" runat="server" Height="100%" Width="100%">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+                </asp:Panel>
+            </div>
+        </div>
+        <script type="text/javascript">
+            //Disable the default MouseOver functionality of ASP.Net Menu control.
+            Sys.WebForms.Menu._elementObjectMapper.getMappedObject = function () {
+                return false;
+            };
+            $(function () {
+                //to fix collapse mode width issue
+                $(".nav li,.nav li a,.nav li ul").removeAttr('style');
+
+                //for dropdown menu
+                $(".dropdown-menu").parent().removeClass().addClass('dropdown');
+                $(".dropdown>a").removeClass().addClass('dropdown-toggle').append('<b class="caret"></b>').attr('data-toggle', 'dropdown');
+
+                //remove default click redirect effect           
+                $('.dropdown-toggle').attr('onclick', '').off('click');
+            });
+        </script>
+    </form>
+</body>
+</html>

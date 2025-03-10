@@ -1,0 +1,48 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Sector.master.cs" Inherits="Sector" %>
+<%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="cc1" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Página sin título</title>
+    <link rel="shortcut icon" href="Grafix/Gestor.ico"/>
+</head>
+<body>
+    <form id="form1" runat="server" method="post">
+    <div>
+    <cc1:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server" 
+            EnableScriptGlobalization="True">
+    </cc1:ToolkitScriptManager>
+<table  bgcolor="#ffffff"  style="width: 100%; height: 100%">
+    <tr>
+        <td valign="top" style="width: 100%">
+        <table border="0" cellpadding="0" cellspacing="0" style="width: 100%; height: 30px">
+        <tr>
+        <td>
+              <asp:Label ID="Label1" runat="server" Text="Label" Font-Bold="True"></asp:Label></td>
+        <td>
+            <asp:LinkButton ID="LinkButton1" runat="server" onclick="LinkButton1_Click"> Balance | </asp:LinkButton>
+            <asp:LinkButton ID="LinkButton2" runat="server" onclick="LinkButton2_Click"> Indicadores | </asp:LinkButton>
+            <asp:LinkButton ID="LinkButton3" runat="server" onclick="LinkButton3_Click"> P&amp;G | </asp:LinkButton>
+            <asp:LinkButton ID="LinkButton6" runat="server" onclick="LinkButton6_Click"> Lista de Empresa | </asp:LinkButton>
+            <asp:LinkButton ID="LinkButton7" runat="server" onclick="LinkButton7_Click"> Ranking | </asp:LinkButton>
+            <asp:LinkButton ID="LinkButton8" runat="server" onclick="LinkButton8_Click"> Prospectar | </asp:LinkButton>
+            <asp:LinkButton ID="LinkButton10" runat="server" onclick="LinkButton10_Click"> Crear Sector |</asp:LinkButton>
+            </td>
+        </tr>
+        </table>
+        </td>
+    </tr>
+    <tr>
+        <td valign="top" style="width: 100%; height: 100%">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </td>
+    </tr>
+    
+</table>
+    
+        
+    </div>
+    </form>
+</body>
+</html>
